@@ -1,0 +1,353 @@
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+
+:root {
+    --camel: #BA8039;
+    --camel-hover: #e09d16;
+    --filter-button: #383838;
+    --hover-filter-button: #4b4b4b;
+    --active-filter-button: #ffffff;
+    --form-background: #191919;
+    --form-input-background: #424242;
+    --error-message: #E53935;
+
+    --card-background: #191919;
+    --robusta-background-color: #3A383D;
+    --arabic-background-color: #77A9B0;
+
+    --header-height: 15vh;
+
+    /* FONTS */
+    --font-color-light: #ffffff;
+    --font-color-grey: #BDBDBD;
+    --font-color-black: #101011;
+    --font-color-camel: #D3AD7F;
+    --font-color-form: #9B9B9B;
+
+    --header-title-size: 1.7rem;
+    --main-title-size: 3.2rem;
+    --subtitle-font-size: 0.9rem;
+    --small-font-size:  0.8rem;
+    --coffee-title-font-size:  1.1rem;
+    --description-font-size:  1rem;
+    --coffee-list-title-size:  1.5rem;
+    --form-font-size:  0.8rem;
+}
+
+body{
+    position: relative;
+    margin: 0;
+}
+
+.modal-open{
+    overflow: hidden;
+}
+
+main {
+    padding:  0 17vw;
+}
+
+header {    
+    padding:  0 17vw;
+    display: flex;
+    height: var(--header-height);
+    justify-content: space-between;
+}
+
+header h2 b{
+    font-size: var(--header-title-size);
+}
+
+header div {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    border-style: none;
+    cursor: pointer;
+}
+
+.dark-background {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0, 1) 100vh);
+    z-index: -5;
+}
+
+.color-white{
+    color: var(--font-color-light);
+}
+
+.color-grey{
+    color: var(--font-color-grey);
+}
+
+footer{
+    margin-top: 250px;
+}
+
+.footer-text-box{
+    position:relative;
+    top: 60px;
+}
+
+.footer-text-box h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.footer-text-box h2 span {
+    font-size: 4.5rem;
+}
+
+.grains-box-1 {
+    position:relative;
+    height: 150px;
+    width: 100%;
+    background-image: url('/coffee_grains.png');
+    background-size: 300px;
+    background-repeat: repeat-x;
+    z-index: -1;
+}
+
+.grains-box-1::after {
+    content: "";
+    transform: rotate(180deg);
+    position: absolute; 
+    bottom: 0;
+    left: 40%;
+    width: 50%;
+    height: 150px;
+    background-image: url('/coffee_grains.png');
+    background-size: 300px;
+    background-repeat: repeat-x;
+}
+
+.grains-box-1::before {
+    content: "";
+    position: absolute; 
+    bottom: 0;
+    left: 5%;
+    width: 50%;
+    height: 150px;
+    background-image: url('/coffee_grains.png');
+    background-size: 300px;
+    background-repeat: repeat-x;
+}
+
+.grains-box-2 {
+    position: absolute;
+    bottom: 4%;
+    left: 0%;
+    height: 150px;
+    width: 99%;
+    background-image: url('/coffee_grains.png');
+    background-size: 300px; 
+    background-repeat: repeat-x;
+    z-index: -1;
+}
+
+.grains-box-2::after {
+    content: "";
+    position: absolute;
+    bottom: 4%;
+    left: 5%;
+    height: 150px;
+    width: 70%;
+    background-image: url('/coffee_grains.png');
+    background-size: 300px; 
+    background-repeat: repeat-x;
+}
+
+.grains-box-2::after {
+    transform: rotate(180deg);
+    content: "";
+    position: absolute;
+    bottom: 4%;
+    left: 25%;
+    height: 150px;
+    width: 70%;
+    background-image: url('/coffee_grains.png');
+    background-size: 300px; 
+    background-repeat: repeat-x;
+}
+
+.grains-box-3 {
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: 3%;
+    left: 35%;
+    height: 150px;
+    width: 30%;
+    background-image: url('/coffee_grains.png');
+    background-size: 300px; 
+    background-repeat: repeat-x;
+}
+
+.error{
+    width: 260px;
+    position: fixed;
+    right: 50px;
+    top: 50px;
+    background-color: var(--error-message);
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: var(--small-font-size);
+    padding: 0 10px;
+    margin: 0;
+    border-radius: 7px;
+    z-index: 5;
+}
+
+.error-text {
+    padding: 0 10px;
+}
+
+.warning-symbol {
+    font-size: 25px;
+    margin: 0 2px;
+    margin-bottom: 6px;
+
+}
+
+.x-symbol{
+    padding: 10px;
+    font-size: 18px;
+    margin: 0;
+    color: white;
+    background-color: transparent;
+}
+
+
+@media (max-width: 440px) {
+    main {
+        padding: 0 6vw;
+    }
+
+    header {    
+        padding:  0 7vw;
+    }
+
+    header h2{
+        font-size: calc(var(--header-title-size)*0.6);
+    }
+
+    header h2 b{
+        font-size: calc(var(--header-title-size)*1.2);
+    }
+
+    footer{
+        margin-top: 170px;
+    }
+
+    .footer-text-box h2 {
+        font-size: 8vw;
+    }
+
+    .footer-text-box h2 span {
+        font-size: 15vw;
+    }
+
+    .error{
+        width: 85vw;
+        top: 4vh;
+        right: 3.5vh;
+        font-size: calc(var(--small-font-size)*1.2);
+    }
+    
+    .warning-symbol {
+        font-size: 32px;
+        margin-bottom: 6px;
+        padding-right: 5px;
+    }
+
+    .x-symbol{
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 330px) {
+    .error{
+        right: 2.5vh;
+    }
+}
+
+@media (min-width: 1800px) {
+    body{
+        font-size: calc(1rem * 1.3);
+    }
+    header h2 b{
+        font-size: var(--header-title-size)*1.3;
+    }
+    .main-title{
+        font-size: calc(var(--main-title-size)*1.3);
+    }
+
+    .subtitle{
+        font-size: calc(var(--subtitle-font-size)* 1.3);
+    }
+    .coffeeImage{
+        top: -170px;
+    }
+
+    .error{
+        width: 300px;
+        right: 70px;
+        font-size: calc(var(--small-font-size)*1.2);
+    }
+    
+    .warning-symbol {
+        font-size: 30px;
+        margin: 0 4px;
+    }
+    
+    .x-symbol{
+        font-size: 23px;
+    }
+}
+
+@media (min-width: 2200px) {
+    body{
+        font-size: calc(1rem * 1.5);
+    }
+    header h2 b{
+        font-size: var(--header-title-size)*1.6;
+    }
+    .main-title{
+        font-size: calc(var(--main-title-size)*1.6);
+    }
+
+    .subtitle{
+        font-size: calc(var(--subtitle-font-size)* 1.5);
+    }
+
+    .coffeeImage{
+        top: -200px;
+    }
+
+    .error{
+        width: 340px;
+        top: 60px;
+        right: 100px;
+        font-size: calc(var(--small-font-size)*1.5);
+    }
+    
+    .warning-symbol {
+        font-size: 32px;
+        margin-bottom: 6px;
+    }
+
+    .x-symbol{
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,319 @@
+.background{
+    display: flex;
+    top: 0;
+    left: 0; 
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.modalBox {
+    background-color: var(--form-background);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 30px 40px 40px;
+    height: 70vh;
+    width: 35vw;
+    overflow: hidden;
+}
+
+.formTitle{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: var(--coffee-list-title-size);
+}
+
+.form{
+    padding-inline: 100px;
+}
+
+
+.closeButton{
+    margin-left: auto;
+    color: white;
+    text-decoration: none;
+    height: 5vh ;
+}
+
+.fieldRow{
+    margin: 15px 0;
+}
+
+.nameBox{
+    flex: 4;
+    margin-right: 15px;
+}
+
+.priceBox {
+    flex: 2;
+}
+
+.priceBox div{
+    display: flex;
+}
+
+.euro{
+    color: white;
+    position: relative;
+}
+
+.flex{
+    display: flex;
+}
+
+.label{
+    display: block;
+    color: var(--font-color-form);
+    margin-bottom: 8px;
+    font-size: var(--form-font-size);
+}
+
+.typeLabel{
+    color: var(--font-color-form);
+    font-size: var(--form-font-size);
+}
+
+.input{
+    display: block;
+    height: 33px;
+    width: 100%;
+    border: var(--font-color-form) solid 1.5px;
+    border-radius: 7px;
+    padding-inline: 7px;
+    box-sizing: border-box;
+    color: white;
+    background-color: var(--form-input-background);
+}
+
+.input::placeholder{
+    color: var(--font-color-form);
+    font-size: var(--form-font-size);
+}
+
+.hideRadio {
+    display: none;
+}
+
+.typeLabel{
+    display: flex;
+    border: var(--font-color-form) solid 1.5px;
+    border-radius: 7px;
+    height: 33px;
+    width: 100%;
+}
+
+.typeLabel:hover, .varietyChecked {
+    border: white solid 1.5px !important;
+    color: white;
+    cursor: pointer;
+}
+
+.typeLabel:first-child {
+    margin-right: 8px;
+}
+
+.typeLabel p{
+    margin: auto;
+}
+
+.varietyBox{
+    display: flex;
+    width: 100%;
+}
+
+.buttonsBox{
+    padding-inline: 100px;
+    margin: 10px auto;
+}
+
+.buttonsBox .camelButton{
+    margin: 0 10px;
+}
+
+.camelButton{
+    color: var(--font-color-light);
+    background-color: var(--camel);
+    text-decoration: none;
+    color: var(--font-color-light);
+    background-color: var(--camel);
+    border-radius: 30px;
+    padding: 10px 25px;
+    height: 5vh;
+    font-size: var(--small-font-size);
+}
+
+.camelButton:hover{
+    background-color: var(--camel-hover);
+}
+
+.blackButton{
+    text-decoration: none;
+    color: var(--font-color-light);
+    background-color: var(--camel);
+    border-radius: 30px;
+    padding: 10px 25px;
+    margin: 10;
+    height: 5vh;
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    background-color: var(--card-background);
+    color: var(--font-color-light);
+    border: var(--camel) solid 1px;
+}
+
+.blackButton:hover{
+    background-color: #4f4f4f;
+}
+
+.coffeeGrains{
+    position: relative;
+    left: -100px;
+    top: -20px;
+}
+
+.errorMessage{
+    color: var(--error-message);
+    font-size: var(--form-font-size);
+    margin-top: 5px;
+    margin-bottom: -5px;
+    padding: 0;
+    /* border: red solid 1px; */
+}
+
+.redBorder {
+    border: var(--error-message) solid 1px;
+}
+
+@media (max-width: 440px) {
+    .background{
+        height: 100%;
+    }
+    
+    .modalBox {
+        background-color: black;
+        padding: 20px 8vw;
+        width: 100vw;
+        height: 100%;
+        overflow: visible;
+    }
+        
+    .formTitle{
+        margin-top: 50px;
+        margin-bottom: 5px;
+        font-size: calc(var(--coffee-list-title-size)*1.2);
+    }
+    
+    .form{
+        padding-inline: 0px;
+    }
+
+    .coffeeGrains{
+        display: none;
+    }
+
+    .fieldRow:first-child{
+        display: block;
+    }
+
+    .nameBox{
+        flex: 4;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .buttonsBox{
+        padding-inline: 0;
+        padding-top: 50px;
+        width: 100%;
+    }
+    
+    .buttonsBox .camelButton{
+        display: block;
+        margin: 13px 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .blackButton{
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+        height: auto;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 1800px) {
+
+    .camelButton, .blackButton{
+        font-size: calc(var(--small-font-size) *1.3);
+        padding: 1.5vh 1.5vw;
+    }
+
+    .coffeeGrains{
+        width: 250px;
+        top: 0px;
+        left: -130px;
+    }
+    .formTitle{
+        margin-top: 30px;
+    }
+
+    .fieldRow{
+        margin: 15px 0;
+    }
+
+    .label, .typeLabel, .input::placeholder, .input {
+        font-size: calc(var(--form-font-size)*1.2);
+    }
+
+    .input{
+        height: 35px;
+        padding-bottom: 0;
+    }
+
+    .coffeeGrains{
+        left: -100px;
+        top: -20px;
+    }
+    
+}
+
+@media (min-width: 2200px) {
+    .camelButton, .blackButton{
+        font-size: calc(var(--small-font-size) *1.4);
+    }
+    
+    .buttonsBox{
+        margin-top: 20px;
+    }
+
+    .modalBox {
+        padding: 40px;
+    }
+    .formTitle{
+        font-size: calc(var(--coffee-list-title-size) *1.4);
+        margin-bottom: 0;
+    }
+
+    .fieldRow{
+        margin-top: 25px;
+    }
+    
+    .input, .typeLabel{
+        height: 40px;
+        padding-bottom: 0;
+    }
+
+    .label, .typeLabel, .input::placeholder, .input {
+        font-size: calc(var(--form-font-size)*1.3);
+    }
+    .coffeeGrains{
+        left: -100px;
+        top: -20px;
+    }
+}

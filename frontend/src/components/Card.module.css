@@ -1,0 +1,152 @@
+.cardBox {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    height: 52vh;
+}
+
+.image{
+    position: relative;
+    top: 0px;
+    margin: auto;
+    object-fit: contain;
+    width: 90%;
+}
+
+.varietyBox{
+    display: inline-block;
+    border-radius: 20px;
+    padding: 3px 12px 6px 12px;
+    position: absolute;
+}
+
+.varietyBox p {
+    display: inline;
+    font-size: calc(var(--small-font-size)*1.2);
+}
+
+.arabic{
+    background-color: var(--arabic-background-color);
+}
+
+.robusta{
+    background-color: var(--robusta-background-color);
+}
+
+.title{
+    text-align: center;
+    color: var(--font-color-camel);
+    font-size: var(--coffee-title-font-size);
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+.description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: var(--font-color-grey);
+    font-size: var(--description-font-size);
+}
+
+.price{
+    text-align: center;
+    font-size: var(--coffee-title-font-size);
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 440px) {
+    .cardBox{
+        margin: 25px 0;
+        height: 65vh;
+    }
+
+    .varietyBox{
+        padding: 6px 12px;
+    }
+    
+    .varietyBox p {
+        font-size: calc(var(--small-font-size)* 1.4);
+    }
+    
+    .image{
+        width: 95%;
+        top: -5px;
+    }
+
+    .title {
+        font-size: calc(var(--coffee-title-font-size) * 1.3);
+    }
+    .description{
+        font-size: calc(var(--small-font-size) *1.4);
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .price{
+        font-size: calc(var(--coffee-title-font-size) * 1);
+    }
+    
+}
+
+@media (min-width: 1800px) {
+    .varietyBox{
+        padding-top: 5px;
+        padding-bottom: 3px;
+    }   
+
+    .varietyBox p {
+        position: relative;
+        top: -3px;   
+        font-size: calc(var(--small-font-size) *1.3);
+    }
+
+    .image{
+        width: 75%;
+    }
+
+    .title {
+        font-size: calc(var(--coffee-title-font-size) * 1.2);
+    }
+    .description{
+        font-size: calc(var(--small-font-size) *1.3);
+        margin: 15px 0;
+    }
+    .price{
+        font-size: calc(var(--coffee-title-font-size) * 1.2);
+    }
+}
+
+@media (min-width: 2200px) {
+    .cardBox{
+        height: 50vh;
+        padding: 30px;
+    }
+    .varietyBox{
+        padding-top: 5px;
+        padding-inline: 18px;
+    }   
+    .varietyBox p {
+        font-size: calc(var(--small-font-size) *1.6);
+    }
+    .title {
+        font-size: calc(var(--coffee-title-font-size) * 1.5);
+    }
+    .description{
+        font-size: calc(var(--small-font-size) *1.5);
+    }
+    .price{
+        font-size: calc(var(--coffee-title-font-size) * 1.5);
+        margin-bottom: 30px;
+    }
+    .image{
+        width: 80%;
+        top: -15px;
+    }  
+}

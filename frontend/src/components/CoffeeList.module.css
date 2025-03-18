@@ -1,0 +1,43 @@
+
+.headerAndFilterBox{
+    margin-top: 5vh;
+    margin-bottom: 6vh;
+}
+
+.headerBox h2{
+    font-size: var(--coffee-list-title-size);
+    text-align: center;
+}
+
+.cardsMainBox {
+    display: grid;
+    margin-inline: auto;
+    grid-template-columns: 21vw 21vw 21vw;
+    gap: 20px;
+}
+
+@media (max-width: 440px) {
+    .headerBox h2{
+        font-size: calc(var(--coffee-list-title-size)*0.8);
+    }
+    
+    .cardsMainBox {
+        display: block;
+    }
+}
+
+@media (min-width: 1800px) {
+    .headerBox h2{
+        font-size: calc(var(--coffee-list-title-size)*1.25);
+    }
+
+    .cardsMainBox {
+        gap: 35px;
+    }
+}
+
+@media (min-width: 2200px) {
+    .headerBox h2{
+        font-size: calc(var(--coffee-list-title-size)*1.6);
+        }
+}
