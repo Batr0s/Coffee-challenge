@@ -2,7 +2,7 @@ import axios from "axios";
 import { Coffee } from "../domain/Coffee";
 import { CoffeeRepository } from "../domain/CoffeeRepository";
 
-export class CoffeeApi implements CoffeeRepository {
+export class HttpCoffeeRepository implements CoffeeRepository {
     private readonly API_URL = "http://localhost:5000/coffee";
 
     async getAll(): Promise<Coffee[]> {

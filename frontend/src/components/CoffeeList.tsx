@@ -4,16 +4,19 @@ import { useEffect, useState } from 'react';
 import style from './CoffeeList.module.css'
 import FilterButtons from './FilterButtons';
 import { Coffee } from '@/context/domain/Coffee';
-import { fetchCoffees } from '@/context/services/coffeeService';
+import { ManageCoffee } from '@/context/useCases/ManageCoffee';
+import { HttpCoffeeRepository } from '@/context/adapters/HttpCoffeeRepository';
 
 export default function CoffeeList() {
-    const [items, SetItems] = useState<Coffee[]>([]);
+    const [coffees, SetCoffees] = useState<Coffee[]>([]);
     const [filterValue, SetFilterValue] = useState<string>('All');
     const varieties = ['All', 'Robusta', 'Arabic'];
 
     const getCoffees = async () => {
-        const coffees = await fetchCoffees();
-        SetItems(coffees);
+        const httpCoffeeRepository = new HttpCoffeeRepository();
+        const manageCoffee = new ManageCoffee(httpCoffeeRepository);
+        const coffees = await manageCoffee.fetchCoffees();
+        SetCoffees(coffees);
     };
 
     useEffect(() => {
@@ -36,15 +39,15 @@ export default function CoffeeList() {
                 />
             </div>
             <div className={style.cardsMainBox}>
-                {items.map((item) => {
-                    if (item.variety === filterValue || filterValue === 'All') {
+                {coffees.map((coffee) => {
+                    if (coffee.variety === filterValue || filterValue === 'All') {
                         return <Card 
-                            key={item.id}
-                            title={item.name} 
-                            description={item.description}
-                            variety={item.variety}
-                            price={item.price}
-                            imageUrl={item.imageUrl}
+                            key={coffee.id}
+                            title={coffee.name} 
+                            description={coffee.description}
+                            variety={coffee.variety}
+                            price={coffee.price}
+                            imageUrl={coffee.imageUrl}
                         />
                     }                    
                 })}

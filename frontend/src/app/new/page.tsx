@@ -4,7 +4,8 @@ import style from './page.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
 import { Coffee } from '@/context/domain/Coffee';
-import { createCoffee } from '@/context/services/coffeeService';
+import { ManageCoffee } from '@/context/useCases/ManageCoffee';
+import { HttpCoffeeRepository } from '@/context/adapters/HttpCoffeeRepository';
 import { useRouter } from 'next/navigation';
 import formValidation from '@/utils/formValidation';
 
@@ -39,7 +40,10 @@ export default function NewCoffee() {
             return;
         }
 
-        const response = await createCoffee(formData);
+        const httpCoffeeRepository = new HttpCoffeeRepository();
+        const coffeeService = new ManageCoffee(httpCoffeeRepository);
+
+        const response = await coffeeService.createCoffee(formData);
         if (!response) {
             localStorage.setItem('error', 'A coffee with the same name already exists');
         }
@@ -62,7 +66,13 @@ export default function NewCoffee() {
                                 id='name'
                                 value={formData.name}
                                 placeholder='Name your coffee here'
-                                onChange={(event) => changeFormData(event)}
+                                // onChange={(event) => changeFormData(event)}
+                                onChange={(event) => {
+                                    const value = event.target.value;
+                                    if (value.length <= 30) {
+                                        setFormData({ ...formData, 'name': value });
+                                    }
+                                }}
                                 className={`${style.input} ${errors.name ? style.redBorder : ''}`}
                             />
                             {errors.name && <p className={style.errorMessage}>{errors.name}</p>}
@@ -74,8 +84,8 @@ export default function NewCoffee() {
                                     type='number'
                                     id='price'
                                     value={formData.price}
-                                    onChange={(e) => {
-                                        const value = e.target.value;
+                                    onChange={(event) => {
+                                        const value = event.target.value;
                                         if (/^\d{0,3}(\.\d{0,2})?$/.test(value)) {
                                             setFormData({ ...formData, 'price': parseFloat(value) });
                                         }
@@ -140,7 +150,13 @@ export default function NewCoffee() {
                             id='description'
                             value={formData.description}
                             placeholder='Add a description'
-                            onChange={(event) => changeFormData(event)}
+                            // onChange={(event) => changeFormData(event)}
+                            onChange={(event) => {
+                                const value = event.target.value;
+                                if (value.length <= 50) {
+                                    setFormData({ ...formData, 'description': value });
+                                }
+                            }}
                             className={`${style.input} ${errors.description ? style.redBorder : ''}`}
                         />
                         {errors.description && <p className={style.errorMessage}>{errors.description}</p>}

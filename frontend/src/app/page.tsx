@@ -1,41 +1,15 @@
-'use client'
 import styles from './page.module.css'; 
 import Image from 'next/image';
 import CoffeeList from '@/components/CoffeeList';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import ErrorBox from '@/components/ErrorBox';
 
 export default function Home() {
-  const [error, setError] = useState<string | null>(null);
-  
-  const hideError = () => {
-    setError(null);
-  }
-
-  useEffect(() => {
-    const errorMessage = localStorage.getItem('error');
-    if (errorMessage) {
-        setError(errorMessage);
-        localStorage.removeItem('error');
-    }
-  }, [error]);
 
   return (
     <>
       <div className='dark-background'></div>
-      {error && 
-          <div className='error'>
-            <div>
-              <p className='warning-symbol'>⚠︎</p>
-            </div>
-            <div>
-              <p className='error-text'>{error}</p>
-            </div>
-            <div>
-              <button className='x-symbol' onClick={hideError}>X</button>
-            </div>
-          </div>
-      }
+      <ErrorBox/>
       <header>
         <div className='left-div'>                    
           <h2 className='color-white'><b>MVST</b> Coffee</h2>

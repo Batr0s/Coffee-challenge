@@ -192,42 +192,6 @@ footer{
     background-repeat: repeat-x;
 }
 
-.error{
-    width: 260px;
-    position: fixed;
-    right: 50px;
-    top: 50px;
-    background-color: var(--error-message);
-    color: white;
-    display: flex;
-    align-items: center;
-    font-size: var(--small-font-size);
-    padding: 0 10px;
-    margin: 0;
-    border-radius: 7px;
-    z-index: 5;
-}
-
-.error-text {
-    padding: 0 10px;
-}
-
-.warning-symbol {
-    font-size: 25px;
-    margin: 0 2px;
-    margin-bottom: 6px;
-
-}
-
-.x-symbol{
-    padding: 10px;
-    font-size: 18px;
-    margin: 0;
-    color: white;
-    background-color: transparent;
-}
-
-
 @media (max-width: 440px) {
     main {
         padding: 0 6vw;
@@ -256,30 +220,6 @@ footer{
     .footer-text-box h2 span {
         font-size: 15vw;
     }
-
-    .error{
-        width: 85vw;
-        top: 4vh;
-        right: 3.5vh;
-        font-size: calc(var(--small-font-size)*1.2);
-    }
-    
-    .warning-symbol {
-        font-size: 32px;
-        margin-bottom: 6px;
-        padding-right: 5px;
-    }
-
-    .x-symbol{
-        font-size: 18px;
-    }
-
-}
-
-@media (max-width: 330px) {
-    .error{
-        right: 2.5vh;
-    }
 }
 
 @media (min-width: 1800px) {
@@ -300,20 +240,6 @@ footer{
         top: -170px;
     }
 
-    .error{
-        width: 300px;
-        right: 70px;
-        font-size: calc(var(--small-font-size)*1.2);
-    }
-    
-    .warning-symbol {
-        font-size: 30px;
-        margin: 0 4px;
-    }
-    
-    .x-symbol{
-        font-size: 23px;
-    }
 }
 
 @media (min-width: 2200px) {
@@ -333,21 +259,5 @@ footer{
 
     .coffeeImage{
         top: -200px;
-    }
-
-    .error{
-        width: 340px;
-        top: 60px;
-        right: 100px;
-        font-size: calc(var(--small-font-size)*1.5);
-    }
-    
-    .warning-symbol {
-        font-size: 32px;
-        margin-bottom: 6px;
-    }
-
-    .x-symbol{
-        font-size: 26px;
     }
 }
