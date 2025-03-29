@@ -23,7 +23,7 @@ export default function NewCoffee() {
         variety: '',
         price: 0,
         description: '',
-        imageUrl: 'https://s3-alpha-sig.figma.com/img/9a49/1107/454b3925f6102d94cb61cbd7bb5f598d?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=nT9UAFovvFQiShEaQkJHOrV8-IS3qDgIbk7D86zrK11bUEKPgW-VCJkheKfEs8RRQH9Q~Ly3V8kqm-Nk0o6rW88mlJCU7xf3vTAdNHSHrN2C68X4x66rLf-lvTHKE52w69SYFRpabNSwoPmAZzxkdb0f157Za1sQ2z1E4mJTyHvvDiH7dvY1vBKgI8hJoQHHxNjKEDZNhT5hLaaAUvHuzCcU37uYxg0fjofge7WxCGtTiDpY6pABOeuyKRhdfBcWlG~B4fXFxN8fzsrdYvqdKovqeSd301AO~iOLKv6Z-ZcJ3BBWJEjpASDsDMHKpE1mDspU95aEiKT45sifql22iA__',
+        imageUrl: 'https://epacflexibles.com/wp-content/uploads/2020/04/coffee_bag_mockup.png',
     });
 
     const changeFormData = (event: any) => {

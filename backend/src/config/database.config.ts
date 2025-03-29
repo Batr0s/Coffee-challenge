@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-export const databaseConfig: TypeOrmModuleOptions = {
+export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: 'localhost',
   port: 5432,
@@ -9,4 +9,6 @@ export const databaseConfig: TypeOrmModuleOptions = {
   database: 'mvst-coffee-challenge-db',
   synchronize: true,
   logging: true,
+  autoLoadEntities: true,
+  schema: 'public',
 };
