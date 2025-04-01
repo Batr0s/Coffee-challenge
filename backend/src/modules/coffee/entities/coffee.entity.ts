@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, Unique } from 'typeorm';
 
 export enum CoffeeVariety {
   ARABICA = 'Arabic',
@@ -6,6 +6,7 @@ export enum CoffeeVariety {
 }
 
 @Entity({ name: 'coffee', schema: 'public' })
+@Unique(['name'])
 export class Coffee {
   @PrimaryGeneratedColumn()
   id: number;

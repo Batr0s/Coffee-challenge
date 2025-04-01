@@ -11,4 +11,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   logging: true,
   autoLoadEntities: true,
   schema: 'public',
+  extra: {
+    timezone: 'Europe/Madrid',
+  },
 };
