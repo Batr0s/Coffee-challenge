@@ -1,14 +1,11 @@
 import {
   IsString,
-  IsNotEmpty,
   IsNumber,
   Min,
   MaxLength,
   IsUrl,
-  IsEnum,
   IsOptional,
 } from 'class-validator';
-import { CoffeeVariety } from '../entities/coffee.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateCoffeeDto {
@@ -20,8 +17,8 @@ export class UpdateCoffeeDto {
     description: 'The name of the coffee',
     example: 'Espresso',
   })
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
   @MaxLength(30, { message: 'Name must not exceed 30 characters' })
   name?: string;
 
@@ -29,8 +26,8 @@ export class UpdateCoffeeDto {
     description: 'The description of the coffee',
     example: 'Rich and bold espresso blend.',
   })
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
   @MaxLength(50, { message: 'Description must not exceed 50 characters' })
   description?: string;
 
@@ -39,17 +36,16 @@ export class UpdateCoffeeDto {
     example: 'Robusta',
     default: 'Robusta',
   })
-  @IsEnum(CoffeeVariety, {
-    message: 'Coffee variety must be <Arabic> or <Robusta>',
-  })
-  variety?: CoffeeVariety;
+  @IsOptional()
+  @IsNumber()
+  varietyId?: number;
 
   @ApiProperty({
     description: 'The price of the coffee',
     example: 5.75,
   })
+  @IsOptional()
   @IsNumber()
-  @IsNotEmpty()
   @Min(0, { message: 'Price must be a positive number or zero' })
   price?: number;
 

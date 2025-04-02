@@ -1,9 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, Unique } from 'typeorm';
-
-export enum CoffeeVariety {
-  ARABICA = 'Arabic',
-  ROBUSTA = 'Robusta',
-}
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  Unique,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
+import { CoffeeVariety } from './coffeeVariety.entity';
 
 @Entity({ name: 'coffee', schema: 'public' })
 @Unique(['name'])
@@ -17,15 +20,16 @@ export class Coffee {
   @Column({ type: 'varchar', length: 50 })
   description: string;
 
-  @Column({
-    type: 'enum',
-    enum: CoffeeVariety,
-  })
-  variety: CoffeeVariety;
-
   @Column('decimal', { precision: 5, scale: 2 })
   price: number;
 
   @Column()
   imageUrl: string;
+
+  @Column()
+  varietyId: number;
+
+  @ManyToOne(() => CoffeeVariety, (coffeVariety) => coffeVariety.coffee)
+  @JoinColumn({ name: 'varietyId' })
+  variety: CoffeeVariety;
 }

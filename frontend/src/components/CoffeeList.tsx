@@ -40,12 +40,12 @@ export default function CoffeeList() {
             </div>
             <div className={style.cardsMainBox}>
                 {coffees.map((coffee) => {
-                    if (coffee.variety === filterValue || filterValue === 'All') {
+                    if (coffee.variety.name === filterValue || filterValue === 'All') {
                         return <Card 
                             key={coffee.id}
                             title={coffee.name} 
                             description={coffee.description}
-                            variety={coffee.variety}
+                            variety={coffee.variety.name}
                             price={coffee.price}
                             imageUrl={coffee.imageUrl}
                         />
